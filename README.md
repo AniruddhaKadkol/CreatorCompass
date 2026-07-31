@@ -1,90 +1,114 @@
 # Creator Compass
-Creator Compass is an AI-powered assistant built using **Flask** and **IBM Granite (watsonx.ai)** to help creators generate ideas, improve their content, and receive AI-powered feedback.
 
+> An AI-powered assistant for content creators built with **IBM Granite** and **Flask**.
 ---
+
+# Problem Statement
+
+Content creators spend a significant amount of time brainstorming ideas, improving titles, writing descriptions, planning scripts, and refining their content before publishing.
+
+Most existing AI tools focus on only one task at a time, forcing creators to switch between multiple platforms throughout their creative workflow.
+
+**Creator Compass** solves this problem by providing a centralized AI-powered workspace where creators can:
+
+- Generate content ideas
+- Improve existing content
+- Receive AI-powered feedback
+- Brainstorm creative concepts
+- Organize conversations
+- Analyze content quality
+
+All from one application powered by **IBM Granite**.
+---
+# Objective
+
+Creator Compass aims to simplify the content creation workflow by providing creators with an AI-powered assistant capable of generating and suggesting ideas, refining content, and offering actionable feedback through a unified workspace powered by IBM Granite.
 # Features
-## Content Creator Workspace
-Designed for creators on:
-- YouTube
-- Instagram
-- TikTok
 
-Creator Compass can help with:
-- Video titles
-- Descriptions
-- SEO suggestions
-- Script ideas
-- Branding
+### Content Creator Workspace
+
+- Video title suggestions
+- Thumbnail ideas
+- Description generation
+- SEO improvements
+- Branding suggestions
+- Script assistance
 - Content strategy
-- Thumbnail ideas (text suggestions)
 
 ---
-## Creative Studio
-Designed for artists and creative professionals.
-Creator Compass helps with:
+
+### Creative Studio
+
 - Character concepts
 - Environment ideas
 - World building
-- Illustration concepts
-- Comic ideas
-- Concept art
-- Color palette suggestions
+- Story concepts
+- Illustration guidance
+- Mood board ideas
 - Scene composition
-- Art styles
-The Creative Studio focuses on creative guidance rather than image generation.
 
 ---
-## Creator Dashboard
-The Creator Dashboard analyzes user input and provides:
-- Overall score
-- Title quality
-- Hook strength
-- SEO quality
+
+### Creator Dashboard
+
+- Overall content score
+- Title evaluation
+- Hook analysis
+- SEO score
 - Creativity score
-- Audience appeal
-- Strengths
-- Suggestions for improvement
+- Audience appeal score
+- AI-generated strengths
+- AI-generated suggestions
 
 ---
-## Conversation History
-Creator Compass stores conversations locally using JSON.
-Each workspace maintains its own history including:
-- Date
-- Time
-- Preview
+
+### Conversation Timeline
+
+- Stores previous conversations
+- Quick navigation
+- Persistent history
 
 ---
-# Technologies Used
-Backend
+
+# Tech Stack
+
+## Backend
+
 - Python
 - Flask
 
-Frontend
-- HTML
-- CSS
+## Frontend
+
+- HTML5
+- CSS3
 - JavaScript
 
-Artificial Intelligence
-- IBM watsonx.ai
-- IBM Granite 4 H Small
+## AI
 
-Storage
-- JSON
+- IBM Granite
+- IBM watsonx.ai
+
+## Tools
+
+- Git
+- GitHub
 
 ---
-# Project Structure
-```
-CreatorCompass/
 
-    ai/
+# Project Structure
+
+```
+CreatorCompass
+     ai/
     config/
     data/
-    docs/
     models/
+    providers/
     services/
     static/
+        css/
+        js/
     templates/
-
     app.py
     requirements.txt
     README.md
@@ -92,44 +116,54 @@ CreatorCompass/
 ```
 
 ---
-# Installation
-Clone the repository.
-Install dependencies.
-```bash
-pip install -r requirements.txt
-```
-Create a `.env` file.
-Example:
 
-```env
-IBM_API_KEY=YOUR_API_KEY
-IBM_PROJECT_ID=YOUR_PROJECT_ID
-IBM_URL=https://us-south.ml.cloud.ibm.com
-```
-Run the application.
-```bash
-python app.py
-```
-
----
-# Future Improvements
-- User authentication
-- AI-powered Creator Dashboard
-- Multi-platform optimization
-- Trend analysis
-- Export conversations
-- Cloud database
-- User profiles
-
----
 # Screenshots
-(Add screenshots here)
-- Home
-- Content Creator
-- Creative Studio
-- Creator Dashboard
+
+## Home Page
+
+![Home](screenshots/Screenshots (2).png)
 
 ---
+
+## Content Creator Workspace
+
+![Workspace](screenshots/Screenshots (3).png)
+
+---
+
+## Creator Dashboard
+
+![Dashboard](screenshots/Screenshots (5).png)
+
+---
+
+## Creative Studio
+
+![Creative Studio](screenshots/Screenshots (4).png)
+
+---
+
+# IBM Granite Integration
+
+Creator Compass uses **IBM Granite** through **IBM watsonx.ai** for:
+
+- AI conversations
+- Content generation
+- Creative brainstorming
+- Content evaluation
+- Dashboard analysis
+- Context-aware responses
+
+---
+
+# Author
+
+**Aniruddha Kadkol**
+
+Built using IBM Granite, IBM watsonx.ai, Flask, HTML, CSS and JavaScript.
+
+---
+
 # License
 
 This project was developed as part of learning and experimentation using IBM watsonx.ai.
