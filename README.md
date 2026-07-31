@@ -121,25 +121,25 @@ CreatorCompass
 
 ## Home Page
 
-screenshots/Screenshots (2).png
+![Home](screenshots/Screenshots (2).png)
 
 ---
 
 ## Content Creator Workspace
 
-screenshots/Screenshots (3).png
+![Workspace](screenshots/Screenshots (3).png)
 
 ---
 
 ## Creator Dashboard
 
-screenshots/Screenshots (5).png
+![Dashboard](screenshots/Screenshots (5).png)
 
 ---
 
 ## Creative Studio
 
-screenshots/Screenshots (4).png
+![Creative Studio](screenshots/Screenshots (4).png)
 
 ---
 
