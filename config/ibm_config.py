@@ -1,6 +1,5 @@
 import os
 from dotenv import load_dotenv
-
 load_dotenv()
 
 IBM_API_KEY = os.getenv("IBM_API_KEY").strip()

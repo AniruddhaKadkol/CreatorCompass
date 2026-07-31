@@ -2,16 +2,12 @@ from flask import Flask
 from flask import jsonify
 from flask import render_template
 from flask import request
-
 from models.conversation import Conversation
 from services.ai_service import AIService
 
-
 app = Flask(__name__)
 
-# ==========================================================
 # SERVICES
-# ==========================================================
 
 content_conversation = Conversation(
     "content_creator.json"
@@ -23,9 +19,7 @@ creative_conversation = Conversation(
 
 ai_service = AIService()
 
-# ==========================================================
 # HOME
-# ==========================================================
 
 @app.route("/")
 def home():
@@ -33,11 +27,7 @@ def home():
     return render_template(
         "index.html"
     )
-
-
-# ==========================================================
 # CONTENT CREATOR PAGE
-# ==========================================================
 
 @app.route("/content_creator")
 def content_creator():
@@ -51,11 +41,7 @@ def content_creator():
         timeline=content_conversation.get_timeline()
 
     )
-
-
-# ==========================================================
 # SEND CONTENT MESSAGE
-# ==========================================================
 
 @app.route(
     "/send_message",
@@ -103,11 +89,7 @@ def send_message():
         "timeline": content_conversation.get_timeline()
 
     })
-
-
-# ==========================================================
 # CREATOR DASHBOARD
-# ==========================================================
 
 @app.route(
     "/analyze_content",
@@ -131,11 +113,7 @@ def analyze_content():
         "dashboard": dashboard
 
     })
-
-
-# ==========================================================
 # CREATIVE STUDIO PAGE
-# ==========================================================
 
 @app.route("/creative_studio")
 def creative_studio():
@@ -149,11 +127,7 @@ def creative_studio():
         timeline=creative_conversation.get_timeline()
 
     )
-
-
-# ==========================================================
 # SEND CREATIVE STUDIO MESSAGE
-# ==========================================================
 
 @app.route(
     "/send_creative_message",
@@ -201,11 +175,7 @@ def send_creative_message():
         "timeline": creative_conversation.get_timeline()
 
     })
-
-
-# ==========================================================
 # CLEAR CONTENT HISTORY
-# ==========================================================
 
 @app.route("/clear_content_history")
 def clear_content_history():
@@ -217,11 +187,7 @@ def clear_content_history():
         "success": True
 
     })
-
-
-# ==========================================================
 # CLEAR CREATIVE STUDIO HISTORY
-# ==========================================================
 
 @app.route("/clear_creative_history")
 def clear_creative_history():
@@ -233,11 +199,7 @@ def clear_creative_history():
         "success": True
 
     })
-
-
-# ==========================================================
 # RUN APPLICATION
-# ==========================================================
 
 if __name__ == "__main__":
 
