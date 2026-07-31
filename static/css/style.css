@@ -1,0 +1,835 @@
+/* ==========================================================
+   CREATOR COMPASS v1.0
+========================================================== */
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#edf2f7;
+    color:#222;
+    overflow:hidden;
+}
+
+/* ==========================================================
+   APP
+========================================================== */
+
+.app{
+    display:flex;
+    width:100%;
+    height:100vh;
+}
+
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
+.sidebar{
+    width:240px;
+    background:#ffffff;
+    border-right:1px solid #e4e7ec;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:30px 20px;
+    flex-shrink:0;
+}
+
+.sidebar h2{
+    text-align:center;
+    font-size:30px;
+    margin-bottom:45px;
+    color:#1f2937;
+}
+
+.sidebar nav{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.sidebar nav a{
+    text-decoration:none;
+    color:#333;
+    background:#f5f7fb;
+    padding:15px 18px;
+    border-radius:12px;
+    transition:.25s;
+    font-size:16px;
+    font-weight:500;
+}
+
+.sidebar nav a:hover{
+    background:#2563eb;
+    color:#ffffff;
+    transform:translateX(3px);
+}
+
+.version{
+    text-align:center;
+    color:#777;
+    font-size:14px;
+}
+
+/* ==========================================================
+   MAIN
+========================================================== */
+
+.main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* ==========================================================
+   TOPBAR
+========================================================== */
+
+.topbar{
+    height:80px;
+    background:#ffffff;
+    display:flex;
+    align-items:center;
+    padding:0 35px;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
+    z-index:2;
+}
+
+.topbar h1{
+    font-size:30px;
+    font-weight:700;
+}
+
+/* ==========================================================
+   HOME PAGE
+========================================================== */
+
+.workspace{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.workspace h2{
+    font-size:36px;
+    margin-bottom:50px;
+}
+
+/* ==========================================================
+   HOME CARDS
+========================================================== */
+
+.cards{
+    display:flex;
+    gap:35px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.card{
+    width:260px;
+    height:220px;
+    background:#ffffff;
+    border-radius:22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    color:#222;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+}
+
+.card h3{
+    margin-top:10px;
+    margin-bottom:12px;
+    font-size:28px;
+}
+
+.card p{
+    color:#666;
+}
+
+/* ==========================================================
+   WORKSPACE LAYOUT
+========================================================== */
+
+.workspace-layout{
+    flex:1;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 300px;
+    gap:25px;
+    padding:30px;
+    overflow:hidden;
+    min-height:0;
+}
+
+/* ==========================================================
+   CHAT AREA
+========================================================== */
+
+.chat-area{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    min-height:0;
+}
+
+/* ==========================================================
+   WORKSPACE CARD
+========================================================== */
+
+.workspace-card{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    background:#ffffff;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    overflow:hidden;
+    min-height:0;
+}
+
+/* ==========================================================
+   WORKSPACE HEADER
+========================================================== */
+
+.workspace-header{
+    flex-shrink:0;
+    padding:18px 25px;
+    background:#fafafa;
+    border-bottom:1px solid #e5e5e5;
+}
+
+.workspace-header h2{
+    font-size:24px;
+}
+
+/* ==========================================================
+   WORKSPACE BODY
+========================================================== */
+
+.workspace-body{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    padding:30px;
+    scroll-behavior:smooth;
+    min-height:0;
+}
+
+.workspace-body::-webkit-scrollbar{
+    width:8px;
+}
+
+.workspace-body::-webkit-scrollbar-thumb{
+    background:#d7dbe4;
+    border-radius:20px;
+}
+
+.workspace-body::-webkit-scrollbar-track{
+    background:transparent;
+}
+/* ==========================================================
+   ASSISTANT MESSAGE
+========================================================== */
+
+.assistant-message{
+    align-self:flex-start;
+    display:flex;
+    flex-direction:column;
+    max-width:75%;
+    min-width:120px;
+    padding:18px 20px;
+    background:#f8fafc;
+    border-left:4px solid #2563eb;
+    border-radius:18px 18px 18px 6px;
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
+    animation:fadeIn .25s ease;
+}
+
+.assistant-message strong{
+    margin-bottom:10px;
+    color:#2563eb;
+    font-size:14px;
+    font-weight:600;
+}
+
+.assistant-message p{
+    margin:0;
+    line-height:1.75;
+    white-space:pre-wrap;
+    word-break:break-word;
+    overflow-wrap:anywhere;
+}
+
+/* ==========================================================
+   USER MESSAGE
+========================================================== */
+
+.user-message{
+    align-self:flex-end;
+    display:flex;
+    flex-direction:column;
+    max-width:75%;
+    min-width:120px;
+    padding:18px 20px;
+    background:#2563eb;
+    color:#ffffff;
+    border-radius:18px 18px 6px 18px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    animation:fadeIn .25s ease;
+}
+
+.user-message strong{
+    margin-bottom:10px;
+    color:#ffffff;
+    font-size:14px;
+    font-weight:600;
+}
+
+.user-message p{
+    margin:0;
+    line-height:1.75;
+    white-space:pre-wrap;
+    word-break:break-word;
+    overflow-wrap:anywhere;
+}
+
+/* ==========================================================
+   CHAT INPUT
+========================================================== */
+
+.chat-input{
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:20px;
+    background:#ffffff;
+    border-top:1px solid #e5e5e5;
+}
+
+.chat-input input{
+    flex:1;
+    height:52px;
+    padding:0 18px;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    font-size:16px;
+    outline:none;
+    transition:.25s;
+}
+
+.chat-input input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+.chat-input input::placeholder{
+    color:#8a8a8a;
+}
+
+.chat-input button{
+    width:130px;
+    height:52px;
+    flex-shrink:0;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:#ffffff;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.chat-input button:hover{
+    background:#1d4ed8;
+}
+
+.chat-input button:disabled{
+    background:#9ca3af;
+    opacity:.65;
+    cursor:not-allowed;
+}
+
+/* ==========================================================
+   TYPING INDICATOR
+========================================================== */
+
+#typingIndicator{
+    display:inline-flex;
+    flex-direction:column;
+    align-self:flex-start;
+    width:fit-content;
+    max-width:260px;
+    padding:16px 18px;
+    background:#f8fafc;
+    border-left:4px solid #2563eb;
+    border-radius:16px;
+    box-shadow:0 3px 10px rgba(0,0,0,.05);
+}
+
+#typingIndicator strong{
+    margin-bottom:10px;
+    color:#2563eb;
+    font-size:14px;
+    font-weight:600;
+}
+
+.typing{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.typing span{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#2563eb;
+    animation:typingBounce 1.3s infinite;
+}
+
+.typing span:nth-child(2){
+    animation-delay:.2s;
+}
+
+.typing span:nth-child(3){
+    animation-delay:.4s;
+}
+
+@keyframes typingBounce{
+
+    0%{
+        transform:translateY(0);
+        opacity:.4;
+    }
+
+    50%{
+        transform:translateY(-6px);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(0);
+        opacity:.4;
+    }
+
+}
+
+/* ==========================================================
+   GLOBAL BUTTONS
+========================================================== */
+
+button{
+    transition:.25s;
+}
+
+button:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+}
+
+/* ==========================================================
+   MESSAGE ANIMATION
+========================================================== */
+
+.user-message,
+.assistant-message{
+    transition:.2s ease;
+}
+/* ==========================================================
+   RIGHT PANEL
+========================================================== */
+
+.right-panel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    height:100%;
+
+    min-height:0;
+
+}
+/* ==========================================================
+   PANEL CARD
+========================================================== */
+
+.panel-card{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.25s;
+
+}
+
+.panel-card:hover{
+
+    transform:translateY(-2px);
+
+}
+.panel-card:first-child{
+
+    height:320px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex-shrink:0;
+
+}
+/* ==========================================================
+   TIMELINE
+========================================================== */
+.timeline{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    min-height:0;
+
+}
+.timeline-empty{
+    color:#8a8a8a;
+    font-style:italic;
+    font-size:15px;
+}
+
+.timeline-item{
+    background:#f8fafc;
+    border-left:4px solid #2563eb;
+    padding:14px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.25s;
+    user-select:none;
+}
+
+.timeline-item:hover{
+    background:#edf4ff;
+    transform:translateX(3px);
+}
+.timeline-time{
+
+    font-size:12px;
+
+    color:#777;
+
+    margin-bottom:4px;
+
+    font-weight:500;
+
+}
+.timeline-title{
+    font-size:14px;
+    font-weight:600;
+    color:#111827;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+/* ==========================================================
+   CREATOR DASHBOARD
+========================================================== */
+#creatorDashboard{
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+    min-height:0;
+
+}
+#creatorScore{
+    margin:15px 0;
+    font-size:38px;
+    color:#2563eb;
+}
+#creatorDashboardMessage{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    min-height:0;
+
+    padding-right:5px;
+
+}
+#analyzeButton{
+    width:100%;
+    height:48px;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:#ffffff;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+#analyzeButton:hover{
+    background:#1d4ed8;
+}
+
+#creatorDashboard::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+#creatorDashboard::-webkit-scrollbar-thumb{
+
+    background:#d7dbe4;
+
+    border-radius:20px;
+
+}
+
+#creatorDashboard::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+.dashboard-rating{
+
+    margin-top:8px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#2d7a46;
+
+}
+/* ==========================================================
+   FADE IN ANIMATION
+========================================================== */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN
+========================================================== */
+
+@media (max-width:1200px){
+
+    .workspace-layout{
+        grid-template-columns:1fr;
+    }
+
+    .right-panel{
+        display:none;
+    }
+
+}
+
+@media (max-width:900px){
+
+    .sidebar{
+        width:200px;
+    }
+
+    .topbar h1{
+        font-size:26px;
+    }
+
+    .workspace{
+        padding:25px;
+    }
+
+    .workspace h2{
+        font-size:30px;
+        text-align:center;
+    }
+
+    .cards{
+        gap:25px;
+    }
+
+}
+
+@media (max-width:700px){
+
+    body{
+        overflow:auto;
+    }
+
+    .app{
+        flex-direction:column;
+        height:auto;
+        min-height:100vh;
+    }
+
+    .sidebar{
+        display:none;
+    }
+
+    .main{
+        height:auto;
+    }
+
+    .topbar{
+        height:70px;
+        padding:0 20px;
+    }
+
+    .topbar h1{
+        font-size:22px;
+    }
+
+    .workspace-layout{
+        padding:15px;
+    }
+
+    .workspace-body{
+        padding:20px;
+    }
+
+    .assistant-message,
+    .user-message{
+        max-width:92%;
+    }
+
+    .chat-input{
+        flex-direction:column;
+        align-items:stretch;
+        gap:12px;
+    }
+
+    .chat-input input{
+        width:100%;
+    }
+
+    .chat-input button{
+        width:100%;
+    }
+
+}
+
+/* ==========================================================
+   CUSTOM SCROLLBAR
+========================================================== */
+
+.timeline::-webkit-scrollbar,
+.workspace-body::-webkit-scrollbar{
+    width:8px;
+}
+
+.timeline::-webkit-scrollbar-thumb,
+.workspace-body::-webkit-scrollbar-thumb{
+    background:#cbd5e1;
+    border-radius:20px;
+}
+
+.timeline::-webkit-scrollbar-thumb:hover,
+.workspace-body::-webkit-scrollbar-thumb:hover{
+    background:#94a3b8;
+}
+
+.timeline::-webkit-scrollbar-track,
+.workspace-body::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+/* ==========================================================
+   TEXT SELECTION
+========================================================== */
+
+::selection{
+    background:#2563eb;
+    color:#ffffff;
+}
+
+/* ==========================================================
+   FOCUS ACCESSIBILITY
+========================================================== */
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible{
+    outline:3px solid rgba(37,99,235,.25);
+    outline-offset:3px;
+}
+
+/* ==========================================================
+   SMALL IMPROVEMENTS
+========================================================== */
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+input,
+button{
+    font-family:inherit;
+}
+
+/* ==========================================================
+   END OF FILE
+   Creator Compass v1.0
+========================================================== */

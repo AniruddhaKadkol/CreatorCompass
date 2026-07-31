@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Creator Compass | Content Creator Workspace</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ======================================================
+         SIDEBAR
+    ======================================================= -->
+
+    <aside class="sidebar">
+
+        <h2>Creator Compass</h2>
+
+        <nav>
+
+            <a href="/">Home</a>
+
+        </nav>
+
+        <div class="version">
+
+            Version 1.0
+
+        </div>
+
+    </aside>
+
+    <!-- ======================================================
+         MAIN
+    ======================================================= -->
+
+    <main class="main">
+
+        <!-- ==================================================
+             TOP BAR
+        =================================================== -->
+
+        <header class="topbar">
+
+            <h1>Content Creator Workspace</h1>
+
+        </header>
+
+        <!-- ==================================================
+             WORKSPACE
+        =================================================== -->
+
+        <div class="workspace-layout">
+
+            <!-- ==============================================
+                 CHAT AREA
+            =============================================== -->
+
+            <section class="chat-area">
+
+                <div class="workspace-card">
+
+                    <div class="workspace-header">
+
+                        <h2>Workspace</h2>
+
+                    </div>
+
+                    <!-- ======================================
+                         CHAT MESSAGES
+                    ======================================= -->
+
+                    <div
+                        class="workspace-body"
+                        id="workspaceBody">
+
+                        {% if messages %}
+
+                            {% for message in messages %}
+
+                                <div class="{{ message.role }}-message">
+
+                                    <strong>
+
+                                        {% if message.role == "user" %}
+                                            You
+                                        {% else %}
+                                            Creator Compass
+                                        {% endif %}
+
+                                    </strong>
+
+                                    <p>{{ message.content }}</p>
+
+                                </div>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <div class="assistant-message">
+
+                                <strong>
+
+                                    Creator Compass
+
+                                </strong>
+
+                                <p>
+
+Welcome to Creator Compass.
+
+I can help you with:
+
+• Video Titles
+
+• Thumbnail Ideas
+
+• Descriptions
+
+• Tags
+
+• Scripts
+
+• SEO
+
+• Branding
+
+• Content Strategy
+
+Describe what you're creating to get started.
+
+                                </p>
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                    <!-- ======================================
+                         CHAT INPUT
+                    ======================================= -->
+
+                    <form
+                        id="chatForm"
+                        class="chat-input">
+
+                        <label
+                            for="message"
+                            class="visually-hidden">
+
+                            Message
+
+                        </label>
+
+                        <input
+
+                            id="message"
+
+                            type="text"
+
+                            placeholder="Describe your content idea..."
+
+                            autocomplete="off"
+
+                            maxlength="3000"
+
+                            required>
+
+                        <button
+
+                            id="sendButton"
+
+                            type="submit">
+
+                            Send
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+            <!-- ==============================================
+                 RIGHT PANEL
+            =============================================== -->
+
+            <aside class="right-panel">
+
+                <!-- ==========================================
+                     TIMELINE
+                =========================================== -->
+
+                <div class="panel-card">
+
+                    <h3>
+
+                        Timeline
+
+                    </h3>
+
+                    <div
+                        id="timeline"
+                        class="timeline">
+
+                        {% if timeline %}
+
+                            {% for item in timeline %}
+
+                                <div
+                                    class="timeline-item"
+                                    data-id="{{ item.id }}">
+
+                                    <div class="timeline-time">
+
+                                        {{ item.time }}
+
+                                    </div>
+
+                                    <div class="timeline-title">
+
+                                        {{ item.title }}
+
+                                    </div>
+
+                                </div>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <p class="timeline-empty">
+
+                                No previous conversations.
+
+                            </p>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================================
+                     CREATOR DASHBOARD
+                =========================================== -->
+
+                <div
+                    class="panel-card"
+                    id="creatorDashboard">
+
+                    <h3>
+
+                        Creator Dashboard
+
+                    </h3>
+
+                    <p>
+
+                        Overall Score
+
+                    </p>
+
+                    <h2 id="creatorScore">
+
+                        -- / 100
+
+                    </h2>
+
+                    <p id="creatorDashboardMessage" class="dashboard-content">
+
+                        Analyze your latest content when you're ready.
+
+                    </p>
+
+                    <button
+
+                        id="analyzeButton"
+
+                        type="button">
+
+                        Analyze
+
+                    </button>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+    window.workspaceType = "content_creator";
+
+</script>
+
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+
+</body>
+
+</html>
