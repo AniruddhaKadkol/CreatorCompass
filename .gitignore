@@ -22,3 +22,5 @@ venv/
 
 # Windows
 Thumbs.db
+
+data/*.json
